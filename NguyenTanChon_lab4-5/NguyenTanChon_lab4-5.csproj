@@ -202,6 +202,7 @@
     <Content Include="Views\Sach\Create.cshtml" />
     <Content Include="Views\Sach\Delete.cshtml" />
     <Content Include="Views\GioHang\GioHang.cshtml" />
+    <Content Include="Views\GioHang\GioHangPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
