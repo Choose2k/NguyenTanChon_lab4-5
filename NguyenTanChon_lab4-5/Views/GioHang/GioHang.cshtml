@@ -12,9 +12,7 @@
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.masach)
-        </th>
+        
         <th>
             @Html.DisplayNameFor(model => model.tensach)
         </th>
@@ -36,7 +34,7 @@
 @foreach (var item in Model) 
 {
     <tr>
-        <td>@Html.DisplayFor(modelItem => item.masach)</td>
+        <td>@Html.DisplayFor(modelItem => item.tensach)</td>
         <td>
             <img src=" @item.hinh" width="180" />
         </td>

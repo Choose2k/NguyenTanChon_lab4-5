@@ -71,13 +71,20 @@ namespace NguyenTanChon_lab4_5.Controllers
             {
                 ViewBag.ThongBao = collection["Chuc mung dang nhap thanh cong"];
                 Session["TaiKhoan"] = kh;
+                Session["Hoten"] = kh.tendangnhap;
             }
             else
             {
                 ViewBag.ThongBao = "Tên đăng nhập hoặc mật khẩu không đúng ";
+                return RedirectToAction("DangNhap", "NguoiDung");
             }
             return RedirectToAction("Index", "Home");
         }
 
+       /* public ActionResult DangXuat()
+        {
+            Session["TaiKhoan"] = null;
+            return RedirectToAction("DangNhap", "NguoiDung");
+        }*/
     }
 }

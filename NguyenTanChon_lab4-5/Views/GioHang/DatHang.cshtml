@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<NguyenTanChon_lab4_5.Models.Giohang>
-
+@using NguyenTanChon_lab4_5.Models
 @{
     ViewBag.Title = "DatHang";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,9 +7,9 @@
 
 <h2>DatHang</h2>
 
-<p>
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
+</p>*@
 <table class="table">
     <tr>
         <th>
@@ -33,39 +33,40 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model)
-{
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.masach)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.tensach)
-    </td>
-    <td>
-        <img src="@item.hinh" width="200" />
-    </td>
-    @using (Html.BeginForm("CapnhatGiohang", "Giohang", new { @id = item.masach }))
+    @foreach (var item in Model)
     {
-        <td>@String.Format("{0:0,0}", item.giaban) VNĐ</td>
-        <td>@Html.DisplayFor(modelItem => item.iSoluong)</td>
-        <<td>@Html.DisplayFor(modelItem => item.dThanhtien)</td>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.masach)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tensach)
+            </td>
+            <td>
+                <img src="@item.hinh" width="200" />
+            </td>
+            @using (Html.BeginForm("CapnhatGiohang", "Giohang", new { @id = item.masach }))
+            {
+                <td>@String.Format("{0:0,0}", item.giaban) VNĐ</td>
+                <td>@Html.DisplayFor(modelItem => item.iSoluong)</td>
+                <
+                <td>@Html.DisplayFor(modelItem => item.dThanhtien)</td>
+            }
+        </tr>
     }
-</tr>
-}
-<tr style="font-weight:bold; text-align:right; color:red">
-    <td colspan="3">Số lượng sách: @ViewBag.Tongsoluong</td>
-    <td colspan="4">Số loại sách: @ViewBag.Tongsoluongsanpham</td>
-    <td colspan="5">Tổng tiền: @String.Format("{0:0,0}", ViewBag.Tongtien)VNĐ</td>
-</tr>
+    <tr style="font-weight:bold; text-align:right; color:red">
+        <td colspan="3">Số lượng sách: @ViewBag.Tongsoluong</td>
+        <td colspan="4">Số loại sách: @ViewBag.Tongsoluongsanpham</td>
+        <td colspan="5">Tổng tiền: @String.Format("{0:0,0}", ViewBag.Tongtien)VNĐ</td>
+    </tr>
     <tr style="font-weight:bold; text-align:right">
         <td colspan="6">@Html.ActionLink("Trỏ về giỏ hàng", "Giohang", "GioHang")</td>
     </tr>
-}
+    }
 </table>
-@using NguyenTanChon_lab4_5.Models
+
 <h2 style="text-align:center">Thông tin đặt hàng</h2>
-@{ 
+@{
     KhachHang kh = (KhachHang)Session["TaiKhoan"];
 }
 <table align="center">
